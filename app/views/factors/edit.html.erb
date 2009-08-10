@@ -1,0 +1,12 @@
+<h1>Editing factor</h1>
+
+<% form_for(@factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @factor %> |
+<%= link_to 'Back', factors_path %>

@@ -1,0 +1,47 @@
+div.delete-balloon h3{
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding:0;
+	color:#333;
+	font-size:1.3em;
+}
+div.delete-balloon a{
+	text-decoration:none;
+	color:#3333aa;
+}
+div.delete-balloon a:hover{
+	text-decoration:none;
+	color:#111133;
+}
+div.delete-balloon img{
+	border:0;
+	margin-right:5px;
+	padding-top: 5px;
+}
+div#content{
+	border: 2px solid #777;
+	width: 800px; height: 600px; float:left; clear:right;
+}
+
+div#finished{
+	margin-top:40px;
+	border:1px solid #777;
+	padding:15px;
+	background-color: #333;
+	color:#fff;
+	text-align:center;
+	cursor:pointer;
+}
+
+a#next-step{
+	margin-top:10px;
+	padding-top:10px;
+	font-size:1.4em;
+	color:#c22;
+}
+
+h2{
+	font-size: 1.4em;
+	color:#111;
+	margin:5px;
+}

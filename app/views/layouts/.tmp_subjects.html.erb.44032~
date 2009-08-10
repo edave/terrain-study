@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Terrain Visualization Study</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <% if params[:action] == 'start' %>
+  <script src="http://www.google.com/jsapi?key=<%= google_api_key() %>"></script>
+    <script type="text/javascript">
+	google.load("earth", "1");
+    google.load("maps", "2");
+    
+var ge = null;
+
+function init() {
+  google.earth.createInstance("earth", initCallback, failureCallback);
+  var map = new google.maps.Map2(document.getElementById("maps"));
+    map.setCenter(new google.maps.LatLng(37.4419, -122.1419), 13);
+
+}
+
+function initCallback(pluginInstance) {
+  ge = pluginInstance;
+  ge.getWindow().setVisibility(true); // required!
+}
+
+function failureCallback(errorCode) {
+  alert("Failure loading the Google Earth Plugin: " + errorCode);
+}
+google.setOnLoadCallback(init);
+
+    </script>
+ <% end %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+</html>

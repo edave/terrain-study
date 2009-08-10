@@ -1,0 +1,40 @@
+<h1>Study Information</h1>
+<h3>The impact of dimension on navigation through diverse terrain</h3>
+<% form_for(@subject) do |f| %>
+  <%= f.error_messages %>
+<h3>Investigators</h3>
+<p><b>David Pitman:</b> MIT, Electrical Engineering and Computer Science, Humans and Automation Lab</p>
+<p><b>Jackie Tappan:</b> MIT, Engineering Systems Division, Humans and Automation Lab</p>
+<h3>Purpose</h3>
+<p>
+    The goal of this project is to assess the impact of dimension on a user’s ability to understand their environment. More specifically, we hope to determine if a navigational task through diverse terrain is better assisted with a 2D map interface, or a 2.5D map interface.
+</p>
+<h3>Study Format</h3>
+<p>The study will consist of two navigation tasks that will be administered online. Your participation is expected to last 20 minutes. </p>
+<p>
+First, you will be asked to complete a demographic questionnaire. Once this is complete, the navigation tasks will begin, with each 
+participant taking part in a path-building task between two points in a 2D (Google Maps) and a 2.5D (Google Earth) mapping environment. 
+Participants will have the opportunity to practice in both environments to familiarize themselves with the task before beginning the 
+experiment.
+</p>
+<p>
+We will select two geographical locations that have diverse terrain, allowing our participants to perform the navigational task using both map representations 
+(repeated measures). We will select a start and end point within each location, and ask each participant to navigate from the start to the 
+finish in the shortest distance possible (taking into account changing topographical terrain). Participants will mark their path using waypoints, a 
+feature that is already present in both Google Maps and Google Earth.</p>
+<p>
+For each of the navigation tasks, you will be shown a start and end point in one of two locations with diverse terrain. The goal for the participant is to navigate from the start to the finish in the shortest distance possible, taking into account changing topographical terrain. You will mark your path using waypoints. Time to create the path will also be recorded. You will be given as much time as needed to complete the navigation tasks. After each computer navigation task, a usability questionnaire will be administered. 
+Although there are no expected risks/side effects associated with participation in this research, should you feel that you can no longer carry out the tasks for any reason, you can stop your participation at anytime by exiting the window. Any data from your participation will not be used in the study.
+You may not benefit personally from your participation in this study. However, the information obtained from this research may help to determine the most appropriate map representation to be used for navigation purposes for both military personnel and civilians. By determining this information, human interaction with navigational displays will be improved. In addition, the findings from the study may help human factors professionals to further appreciate the importance of dimension on the ability of humans to navigate through virtual environments.
+All information collected from participants in this study will be aggregated. Thus, your name will not appear in any report, publication or presentation resulting from this study. Electronic data will be kept on a computer in the lab and on completion of analyses it will be burnt onto a DVD, stored in the lab for 3 years, and then destroyed.
+If you have any questions about participation in this study, please feel free to ask the researchers. You are under no obligation to participate and may withdraw from the study at any time.
+</p>
+  <h3>Consent of participant</h3>
+I agree to participate in a study being conducted at the Massachusetts Institute of Technology. I have made this decision based on the information I have read in the Information-Consent Letter and have had the opportunity to receive any additional details I wanted about the study. I understand that I may withdraw this consent at any time by telling the researcher. 
+  <p>
+    <%= f.check_box :consent %>I agree to participate
+  </p>
+  <p>
+    <%= f.submit 'Start Study' %>
+  </p>
+<% end %>

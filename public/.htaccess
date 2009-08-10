@@ -1,0 +1,5 @@
+#MTSTART -- Automatically generated, don't modify --
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}   !-f
+RewriteRule ^(.*)$ http://10.4.137.79:2010/${escape:$1} [P]
+#MTEND

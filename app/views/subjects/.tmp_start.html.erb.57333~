@@ -1,0 +1,20 @@
+
+<h2>Welcome to the Terrain Display Study</h2>
+        <p>The goal of this project is to assess the impact of dimension on a user’s ability to understand 
+        their environment. More specifically, we hope to determine if a navigational task through diverse 
+        terrain is better assisted with a 2D map interface, or a 2.5D map interface. </p>
+        <h2>Requirements</h2>
+        <p>You will need a modern browser which can display Google Maps and Google Earth, below are examples of both. 
+        You will need to have the Google Earth Plugin installed, (free from Google) in order to participate
+        in this study. If you do not have the plugin installed, the box below will give you instructions on how to 
+        download and install Google Earth. <b style="color:#b33">You will need to restart your web browser if you install the Google Earth Plugin</b></p>
+        <!--[if IE]><p><b style="color:#b33">You may need to click on the "AcitveX Control" yellow bar above the webpage and enable the Google Earth Plugin for it to work.</b></p><![endif]-->
+        <div id="maps" style="width: 400px; height: 300px; float:left; clear:right;">Loading Google Maps</div>
+        <div id="earth" style="width: 400px; height: 300px; float:left; margin-left:20px;"></div>
+        <br style="clear:both;" />
+        <br />
+        <p>
+        <%= link_to '<b>Yes, I can see the map and the earth, let\'s get started!</b>', new_subject_path  %>
+        </p>
+        
+        

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Experiment #<%= @experiment.id %></title>
+      <script src="http://www.google.com/jsapi?key=<%= google_api_key() %>"></script>
+    <script type="text/javascript">
+    google.load("maps", "2");
+    google.load("jquery", "1.3.2");
+    var subjectID = 0;
+    var locationID = <%= @experiment.factor.location_id %>
+    experimentMarkers = [
+    <% waypoints = @experiment.waypoints
+    waypoints.each do |waypoint| %>[<%= waypoint[0] %>, <%= waypoint[1]%>],
+    <%end%>
+    ];
+    </script>
+	<script type="text/javascript" src="/jquery.json-1.3.min.js" ></script>
+    <script type="text/javascript" src="/epiclock/jquery.epiclock.min.js"></script> 
+	<script src="/common.js"></script>
+    <script src="/route-display.js"></script>
+    <%= stylesheet_link_tag 'scaffold' %>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body onload="initialize()" onunload="GUnload()" style="font-family: Arial;border: 0 none;">
+  <div>
+<h1># <%= @experiment.id%></h1>
+<p>Subject #<%= @experiment.subject.id %></p>
+<p>Time: <%= @experiment.time.to_f/1000%>s</p>
+<p># of Waypoints: <%= @experiment.num_waypoints %></p>
+<p>Path Length: <%= @experiment.path_length %>m</p>
+<p>GMaps Length:<span id="waypoint-list"></span></p>
+<p>Elevation Change: <%= @experiment.elevation_change %>m</p>
+<div id="content" style="width: 600px; height: 400px; ">Loading...</div><div style="float: left;">
+<table>
+    <thead>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>Elevation (m)</th>
+    </thead>
+    <tbody>
+    <% 
+	odd = false
+	waypoints.each do |waypoint| 
+	odd = !odd %>
+    <tr <%= if odd then 'class="odd"' end %> ><td><%= waypoint[0] %></td><td><%= waypoint[1] %></td><td><%= waypoint[2] %></td></tr>
+    <% end %>
+    </tbody>
+</table>
+</div>
+<br style="clear:both" />
+<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+<%= link_to 'Back', experiments_path %>

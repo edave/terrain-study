@@ -1,0 +1,29 @@
+<h1>Listing experiments</h1>
+
+<table>
+  <tr>
+      <td>Subject</td>
+      <td>Type</td>
+      <td>Time</td>
+      <td># of Waypoints</td>
+      <td></td>
+      <td></td>
+      <td></td>
+  </tr>
+
+<% @experiments.each do |experiment| %>
+  <tr>
+    <td><%= experiment.subject_id %></td>
+    <td><%= human_experiment_type(experiment.type_id) %></td>
+    <td><%= experiment.time %>s</td>
+    <td><%= experiment.num_waypoints %>
+    <td><%= link_to 'Show', experiment %></td>
+    <td><%= link_to 'Edit', edit_experiment_path(experiment) %></td>
+    <td><%= link_to 'Destroy', experiment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New experiment', new_experiment_path %>

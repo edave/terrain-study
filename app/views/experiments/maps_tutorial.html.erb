@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps Tutorial</title>
+      <script src="http://www.google.com/jsapi?key=<%= google_api_key() %>"></script>
+    <script type="text/javascript">
+    google.load("maps", "2");
+    google.load("jquery", "1.3.2");    
+    var locationID = 0;</script>
+	<script type="text/javascript" src="/jquery.json-1.3.min.js" ></script>
+    <script type="text/javascript" src="/epiclock/jquery.epiclock.min.js"></script> 
+	<script src="/common.js"></script>
+    <script type="text/javascript">subjectID = <%= session[:subject_id] %></script>
+    <script src="/route.js"></script>
+    <%= stylesheet_link_tag 'scaffold' %>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body onload="initialize()" onunload="GUnload()" style="font-family: Arial;border: 0 none;">
+  <div>
+<h1>Best Hiking Path from A to B</h1>
+<p>
+    This research is trying to determine if 2D mapping tools, like Google Maps, or 2.5D mapping tools, like Google Earth, 
+    allow users to plan better paths between two markers. We are interested in the best path you can create for a group of hikers
+    if you were to hike from the start, the tent, to the end, the flag. For example, while the shortest distance "as the crow flies" would
+    be a straight line, this might require you to climb over mountain peaks and would mean a slower (and more difficult) hike overall. 
+    You will be <b>scored</b> on the following aspects of your path:
+    <ol>
+        <li>Path length (both in distance and elevation changes). Assume that are you are designing the route for an average group of hikers, 
+        irregardless of your personal hiking experience.</li>
+        <li>How fast you can create this path</li>
+        <li>Using as few waypoints as possible</li>
+        <li><b>There is no penalty for deleting waypoints, only your final path is scored</b></li>
+    </ol>
+    
+    Please keep in mind that elevation changes throughout a path add to the 
+    overall distance of that path. In other words, while a path going over a mountain may seem shorter, the changes in 
+    elevation to travel over that terrain MAY result in a path that is longer than if the route skirted around the mountain. 
+    Please keep such points in mind during the experimental task.
+</p>
+
+<p>Below we will go over how to use Google Maps and you will have an opportunity to try creating a path before the actual experiment.</p>
+
+<h1>Google Maps Tutorial</h1>
+<p>Below is an annotated image of Google Maps and the path planning interface you will use in this experiment.</p>
+<img src="/images/map-tutorial.png" style="border:1px solid #aaa;" />
+<h2>Google Maps Controls</h2>
+<p>Use the icons in the top left corner of the map to move the map. The +/- buttons below can be used to zoom in on the map. You can also click and drag the map at any point to move the map in and out.</p>
+<p><b>You can use your mouse wheel to zoom in and out on the map.</b></p>
+<h2>Path Planning Tools</h2>
+<ul>
+    <li>The Start is a tent, the Finish is a flag</li>
+    <li>Waypoints are represented by the red markers</li>
+    <li>You can move waypoints by pressing your mouse button down when the mouse 
+    cursor is over a waypoint and drag the waypoint to a new location.</li>
+    <li>You can delete waypoints by clicking on a waypoint, and then clicking 'delete me' in the white bubble</li>
+</ul>
+
+<h1>Topographic Maps and Contour Lines</h1>
+<img src="/images/contour-lines.png" style="border:1px solid #aaa;" />
+<p>Topographic maps and contour lines are used to represent changes in elevation on a normal map. 
+Each contour line on the map represents the elevation of the terrain along that line. If you are not familiar with contour
+lines, please read this <a href="http://raider.muc.edu/~mcnaugma/Topographic%20Maps/contour.htm" target="_blank">explanation</a>, as
+understanding contour lines will be crucial to your success in this task.</p>
+<p>Remember, the closer together the contour lines are, the steeper the change in elevation. Contour lines which are further apart
+indicate a gentler slope.</p>
+
+<h1>Path Planning Tool Example</h1>
+<p>For this tutorial, please play around with the tools until you feel comfortable. </p>
+<p>Below is an example of the path planning tool. Try to do the following:
+<ul>
+    <li>Move the map around to find the start and finish</li>
+    <li>Create a Waypoint</li>
+    <li>Delete a Waypoint</li>
+    <li>Zoom in to see the contour lines</li>
+</ul>
+</p>
+	</div>
+    <div id="content" style="width:450px; height:450px; border:1px solid #aaa" >Loading...</div>
+        
+    <div style="float: left; margin-left: 10px;">
+		<h2 id="time">Starting Experiment...</h2>
+		<h2  id="num-waypoints">No Waypoints</h2>
+		<div id="finished" style="display:none;">Click to Finish!</div>
+		<br/>
+		<a id="next-step" href="/experiments/choose/0" style="display:none; text-decoration:underline;">Continue &raquo;</a>
+		<div id="waypoint-list" style="border:1px solid #ececec; visibility: hidden; display:none;">
+</div>
+</div>
+<br style="clear:both;" />
+<br />
+<p>Remember that for the experimental task, however, we will be recording the distance of the path you create, 
+with shortest paths being best, and the length of time to create the path, with faster times being best. Finally, please use 
+as few waypoints as possible to create your path. <b>You will need to zoom in and examine the contour lines to produce a good path!</b></p>
+        <h1>Comfortable with Google Maps? <%= link_to "Start the study", :controller => :experiments, :action => :maps %></h1>
+        
+  </body>
+</html>

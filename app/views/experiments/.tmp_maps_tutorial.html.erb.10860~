@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps Tutorial</title>
+      <script src="http://www.google.com/jsapi?key=<%= google_api_key() %>"></script>
+    <script type="text/javascript">
+    google.load("maps", "2");
+    google.load("jquery", "1.3.2");    
+    var locationID = 0;</script>
+	<script type="text/javascript" src="/jquery.json-1.3.min.js" ></script>
+    <script type="text/javascript" src="/epiclock/jquery.epiclock.min.js"></script> 
+	<script src="/common.js"></script>
+    <script type="text/javascript">subjectID = <%= session[:subject_id] %></script>
+    <script src="/route.js"></script>
+    <%= stylesheet_link_tag 'scaffold' %>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body onload="initialize()" onunload="GUnload()" style="font-family: Arial;border: 0 none;">
+  <div>
+<h2>Best Hiking Path from A to B</h2>
+<p>
+    This research is trying to determine if 2D mapping tools, like Google Maps, or 2.5D mapping tools, like Google Earth, allow users to create more efficient routes. In this experiment, we chose to measure the efficiency of routes using two variables: time needed to create the path using the mapping tool (measured in seconds), and the overall distance of the created path (measured in meters). Please keep in mind that elevation changes throughout a path add to the overall distance of that path. In other words, while a path going over a mountain may seem shorter, the changes in elevation to travel over that terrain MAY result in a path that is longer than if the route skirted around the mountain. Please keep such points in mind during the experimental task.
+</p>
+
+<h2>Google Maps Tutorial</h2>
+<p>Please create a path between points A and B. </p>
+<p>Use the icons in the top left corner of the map to plot your path between A and B. Each of the tools can be used in the following manner:</p>
+<p>Use this to drag the map by clicking and dragging to see locations currently outside of your view. You can also use the selection tool to interact with the Zoom Bar and the Waypoint Tool.</p>
+<p>For this tutorial, please play around with the tools until you feel comfortable. Remember that for the experimental task, however, we will be recording the distance of the path you create, with shortest paths being best, and the length of time to create the path, with faster times being best. Finally, please use as few waypoints as possible to create your path. 
+
+When you have completed the path between points A and B, click the “Complete” button, to continue on to the second tutorial.
+</p>
+	</div>
+    <div id="content" style="width:450px; height:450px; border:1px solid #aaa" >Loading...</div>
+        
+    <div style="float: left; margin-left: 10px;">
+		<h2 id="time">Starting Experiment...</h2>
+		<h2  id="num-waypoints">No Waypoints</h2>
+		<div id="finished" style="display:none;">Click to Finish!</div>
+		<br/>
+		<a id="next-step" href="/experiments/choose/0" style="display:none; text-decoration:underline;">Continue &raquo;</a>
+		<div id="waypoint-list" style="border:1px solid #ececec; visibility: hidden; display:none;">
+</div>
+</div>
+<br style="clear:both;" />
+<br />
+        <h1>Comfortable with Google Maps? <%= link_to "Start the study", :controller => :experiments, :action => :maps %></h1>
+        
+  </body>
+</html>

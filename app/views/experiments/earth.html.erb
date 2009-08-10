@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Earth Route</title>
+    <script src="http://www.google.com/jsapi?key=<%= google_api_key() %>"></script>
+    <script type="text/javascript">
+	google.load("earth", "1");
+	google.load("jquery", "1.3.2");
+    var locationID = <%= @factor.location_id %>;</script>
+	<script type="text/javascript" src="/epiclock/jquery.epiclock.min.js"></script> 
+	<script type="text/javascript" src="/jquery.json-1.3.min.js" ></script>
+	<script src="/common.js"></script>
+    <script src="/route-earth.js"></script>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"> 
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+  <body style="font-family: Arial;font-size:13px;border: 0 none; width:1150px">
+    <div id="content" style="width: 800px; height: 600px;">
+      Loading...
+    </div>
+		<div style="float: left; margin-left: 10px;">
+			<h2 id="time">Starting Experiment...</h2>
+			<h2  id="num-waypoints">No Waypoints</h2>
+			<div id="finished" >Click to Finish!</div>
+			<br/>
+			<a id="next-step" href="/experiments/choose/0" style="display:none; text-decoration:underline;">Now Click Me to Continue &raquo;</a>
+			<div id="waypoint-list" style="border:1px solid #ececec; visibility: hidden; display:none;">
+	</div>
+  </body>
+</html>
